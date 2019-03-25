@@ -138,7 +138,7 @@ def main():
             print('#'*100)
             print('Insere elementos da lista')
             lista.insert_n_nodes(random.randint(1, 10 ** 4), random.randint(1, 11 ** 4), 10 ** 3)
-        elif 4 <= operation <= 8:
+        elif 5 <= operation <= 8:
             print('#'*100)
             print('Removendo elementos da lista')            
             lista.remove_n_nodes(random.randint(1, 9 ** 3), 10 ** 3)

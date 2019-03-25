@@ -43,7 +43,7 @@ def main():
             print('#'*100)
             print('Insere elementos da lista')
             lista = insere_randomico(lista, 10 ** 3)
-        elif 4 <= operation <= 8:
+        elif 5 <= operation <= 8:
             print('#'*100)
             print('Removendo elementos da lista')
             lista = remove_randomico(lista, 9 ** 3)
