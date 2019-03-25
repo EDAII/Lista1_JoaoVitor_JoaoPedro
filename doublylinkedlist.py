@@ -9,7 +9,7 @@ class Node:
         self.next = None
         self.prev = None
 
-class MyLinkedList:
+class DoublyLinkedList:
     def __init__(self):
         self.head = None 
         self.tail = None
@@ -183,42 +183,46 @@ class MyLinkedList:
 	
     def insert_n_nodes(self, index, elem, num_nodes):
         for i in range(num_nodes):
-            self.insert_at_front(elem)
+            self.insert_after(index, elem)
 
     def remove_n_nodes(self, elem, num_nodes):
         for i in range(num_nodes):
             self.remove(elem)
 
-def main():
-	lista = MyLinkedList()
-	for i in range(10 ** 4):
-		lista.insert_at_front(random.randint(1, 11 ** 4))   
-	for i in range(0,20):
-		operation = random.randint(1,10)        
-		if 9 <= operation <= 10:
-			try:
-				print('#'*100)
-				print('Realiza busca sequencial')
-				elem = random.randint(1, 11 ** 4)
-				# print('Tamanho lista:',len(lista))
-				print('Elemento procurado:',elem)
-				start = time.time()
-				lista.find(elem)
-				end = time.time()
-				elapsed_time = end - start
-				print('Tempo para realizar busca sequencial:', elapsed_time)
-			except ValueError:
-				print("Valor não encontrado")
-		elif 1 <= operation <= 4:
-			print('#'*100)
-			print('Insere elementos da lista')
-			lista.insert_n_nodes(random.randint(1, 10 ** 4), random.randint(1, 11 ** 4), 10 ** 3)
-		elif 5 <= operation <= 9:
-			print('#'*100)
-			print('Removendo elementos da lista')
-			try:
-				lista.remove_n_nodes(random.randint(1, 9 ** 3), 10 ** 3)				
-			except ValueError:
-				print("Chave não achada")
+# def main():
+# 	lista = DoublyLinkedList()
+# 	for i in range(10 ** 4):
+# 		lista.insert_at_front(random.randint(1, 11 ** 4))   
+# 	for i in range(0,20):
+# 		operation = random.randint(1,10)        
+# 		if 1 <= operation <= 8:
+# 			try:
+# 				print('#'*100)
+# 				print('Realiza busca sequencial')
+# 				elem = random.randint(1, 11 ** 4)
+# 				# print('Tamanho lista:',len(lista))
+# 				print('Elemento procurado:',elem)
+# 				start = time.time()
+# 				lista.find(elem)
+# 				end = time.time()
+# 				elapsed_time = end - start
+# 				print('Tempo para realizar busca sequencial:', elapsed_time)
+# 			except ValueError:
+# 				print("Valor não encontrado")
+# 		elif operation == 9:
+# 			print('#'*100)
+# 			print('Insere elementos da lista')
+# 			try:
+# 				lista.insert_n_nodes(random.randint(1, 10 ** 4), random.randint(1, 11 ** 4), 10 ** 3)
+# 			except:
+# 				print("Chave não achada")
+				
+# 		elif operation == 10:
+# 			print('#'*100)
+# 			print('Removendo elementos da lista')
+# 			try:
+# 				lista.remove_n_nodes(random.randint(1, 9 ** 3), 10 ** 3)				
+# 			except ValueError:
+# 				print("Chave não achada")
 
-main()
+# main()

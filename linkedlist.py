@@ -114,33 +114,33 @@ class LinkedList:
     def __str__(self):
         return self.__repr__()
 
-def main():
-    lista = LinkedList()
-    for i in range(10 ** 4):
-        lista.append(random.randint(1, 11 ** 4))   
-    for i in range(0,20):
-        operation = random.randint(1,10)        
-        if 1 <= operation <= 8:
-            try:
-                print('#'*100)
-                print('Realiza busca sequencial')
-                elem = random.randint(1, 11 ** 4)
-                print('Tamanho lista:',len(lista))
-                print('Elemento procurado:',elem)
-                start = time.time()
-                lista.index(elem)
-                end = time.time()
-                elapsed_time = end - start
-                print('Tempo para realizar busca sequencial:', elapsed_time)
-            except ValueError:
-                print("Valor não encontrado")
-        elif operation == 9:
-            print('#'*100)
-            print('Insere elementos da lista')
-            lista.insert_n_nodes(random.randint(1, 10 ** 4), random.randint(1, 11 ** 4), 10 ** 3)
-        elif operation == 10:
-            print('#'*100)
-            print('Removendo elementos da lista')            
-            lista.remove_n_nodes(random.randint(1, 9 ** 3), 10 ** 3)
+# def main():
+#     lista = LinkedList()
+#     for i in range(10 ** 4):
+#         lista.append(random.randint(1, 11 ** 4))   
+#     for i in range(0,20):
+#         operation = random.randint(1,10)        
+#         if 1 <= operation <= 8:
+#             try:
+#                 print('#'*100)
+#                 print('Realiza busca sequencial')
+#                 elem = random.randint(1, 11 ** 4)
+#                 print('Tamanho lista:',len(lista))
+#                 print('Elemento procurado:',elem)
+#                 start = time.time()
+#                 lista.index(elem)
+#                 end = time.time()
+#                 elapsed_time = end - start
+#                 print('Tempo para realizar busca sequencial:', elapsed_time)
+#             except ValueError:
+#                 print("Valor não encontrado")
+#         elif operation == 9:
+#             print('#'*100)
+#             print('Insere elementos da lista')
+#             lista.insert_n_nodes(random.randint(1, 10 ** 4), random.randint(1, 11 ** 4), 10 ** 3)
+#         elif operation == 10:
+#             print('#'*100)
+#             print('Removendo elementos da lista')            
+#             lista.remove_n_nodes(random.randint(1, 9 ** 3), 10 ** 3)
 
-main()
+# main()
