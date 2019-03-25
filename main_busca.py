@@ -5,6 +5,7 @@ import linkedlist
 import doublylinkedlist
 import random
 import time
+from grafico import plota_grafico_time_size
 
 if __name__ == "__main__":
 
@@ -15,10 +16,10 @@ if __name__ == "__main__":
     resultado_busca_binaria = []
     resultado_busca_sequencial = []
     resultado_busca_sequencial_sentinela = []
-    resultado_lista_encadeada = []
-    resultado_lista_duplamente_encadeada = []
+    resultado_busca_sequencial_encadeada = []
+    resultado_busca_sequencial_duplamente_encadeada = []
 
-
+    
     for i in range(10 ** 4):
         lista_dupla_encadeada.insert_at_front(random.randint(1, 11 ** 4))
         lista_encadeada.append(random.randint(1, 11 ** 4))
@@ -60,8 +61,8 @@ if __name__ == "__main__":
             busca_binaria.binary_search(lista_vetor, elem)
             end = time.time()
             elapsed_time = end - start
-            resultado_lista_encadeada.append(elapsed_time)
-            print('resultado busca sequencial lista encadeada\n', resultado_lista_encadeada)
+            resultado_busca_sequencial_encadeada.append(elapsed_time)
+            print('resultado busca sequencial lista encadeada\n', resultado_busca_sequencial_encadeada)
 
             # lista duplamente encadeada busca sequencial
             start = time.time()
@@ -69,8 +70,8 @@ if __name__ == "__main__":
             busca_binaria.binary_search(lista_vetor, elem)
             end = time.time()
             elapsed_time = end - start
-            resultado_lista_duplamente_encadeada.append(elapsed_time)
-            print('resultado busca sequencial lista duplamente encadeada\n', resultado_lista_duplamente_encadeada)
+            resultado_busca_sequencial_duplamente_encadeada.append(elapsed_time)
+            print('resultado busca sequencial lista duplamente encadeada\n', resultado_busca_sequencial_duplamente_encadeada)
 
         elif operation == 9:
             print('#'*100)
@@ -106,4 +107,7 @@ if __name__ == "__main__":
                 lista_encadeada.remove_n_nodes(random.randint(1, 9 ** 3), 10 ** 3)
             except ValueError:
                 print('Chave não achada aao remover elemento da lista encadeada')
-                
+            
+    plota_grafico_time_size(resultado_busca_binaria,resultado_busca_sequencial,
+                            resultado_busca_sequencial_sentinela,lista_vetor)
+            
