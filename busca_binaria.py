@@ -2,66 +2,83 @@ import random
 import time
 
 
-def bucket_sort(alist):
-    largest = max(alist)
-    length = len(alist)
-    size = largest/length
+def bucket_sort(lista):
+    """
+    Realiza ordenacao utilizando bucket sort
+    lista -- lista de inteiros desordenados
+    """
+    maior = max(lista)
+    tamanho_lista = len(lista)
+    size = maior/tamanho_lista
  
-    buckets = [[] for _ in range(length)]
-    for i in range(length):
-        j = int(alist[i]/size)
-        if j != length:
-            buckets[j].append(alist[i])
+    buckets = [[] for _ in range(tamanho_lista)]
+    for i in range(tamanho_lista):
+        if size == 0:
+            raise ValueError("Lista esta vazia")
+        j = int(lista[i]/size)
+        if j != tamanho_lista:
+            buckets[j].append(lista[i])
         else:
-            buckets[length - 1].append(alist[i])
+            buckets[tamanho_lista - 1].append(lista[i])
  
-    for i in range(length):
+    for i in range(tamanho_lista):
         insertion_sort(buckets[i])
  
     result = []
-    for i in range(length):
+    for i in range(tamanho_lista):
         result = result + buckets[i]
  
     return result
  
-def insertion_sort(alist):
-    for i in range(1, len(alist)):
-        temp = alist[i]
-        j = i - 1
-        while (j >= 0 and temp < alist[j]):
-            alist[j + 1] = alist[j]
-            j = j - 1
-        alist[j + 1] = temp
-
-def binary_search(a_list, item):
-    """Performs iterative binary search to find the position of an integer in a given, sorted, list.
-
-    a_list -- sorted list of integers
-    item -- integer you are searching for the position of
+def insertion_sort(lista):
     """
+    Realiza ordenação utilizando insertion sort
+    lista -- lista de inteiros desordenados    
+    """
+    for i in range(1, len(lista)):
+        temp = lista[i]
+        j = i - 1
+        while (j >= 0 and temp < lista[j]):
+            lista[j + 1] = lista[j]
+            j = j - 1
+        lista[j + 1] = temp
 
-    first = 0
-    last = len(a_list) - 1
+def binary_search(lista, item):
+    """
+    Realiza busca binaria para achar a posicao do inteiro passado em uma lista ordenada
+    lista -- lista de inteiros ordenados
+    item -- inteiro a ser buscado
+    """
+    primeiro = 0
+    ultimo = len(lista) - 1
 
-    while first <= last:
-        i = int((first + last) / 2)
+    while primeiro <= ultimo:
+        i = int((primeiro + ultimo) / 2)
 
-        if a_list[i] == item:
+        if lista[i] == item:
             return i
-        elif a_list[i] > item:
-            last = i - 1
-        elif a_list[i] < item:
-            first = i + 1
+        elif lista[i] > item:
+            ultimo = i - 1
+        elif lista[i] < item:
+            primeiro = i + 1
         else:
             return '{item} nao achado na lista'.format(item=item)
  
 def insere_randomico(lista, qtd_insercao):
+    """
+    Insere n elementos de acordo com a quantidade passada por parametro
+    qtd_insercao -- quantidade a ser inserida da lista
+    """
     for i in range(qtd_insercao):
         lista.append(random.randint(1,10000))
     random.shuffle(lista)
     return lista
 
 def remove_randomico(lista, qtd_remocao):
+    """
+    Remove n elementos de acordo com a quantidade passada por parametro
+    qtd_remocao -- quantidade a ser removida da lista
+    """
     for i in range(qtd_remocao):
         lista.pop(random.randrange(len(lista)))    
     return lista
